@@ -22,7 +22,6 @@ public class CustomerController {
 
     @PostMapping(value = "sort", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
     @ResponseStatus(OK)
-    @Async
     public CompletableFuture<CustomerDto[]> sort(@RequestBody CustomerDto[] customers) {
         log.trace("Sorting customers...");
         return CompletableFuture.supplyAsync(() -> customerService.sort(customers));
